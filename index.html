@@ -69,7 +69,7 @@
       border: 1px solid #ddd;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
-      height: 100px;
+      height: 80px;
       resize: vertical;
       font-family: 'Consolas', 'Monaco', monospace;
       line-height: 1.5;
@@ -81,22 +81,8 @@
       box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     }
     
-    input[type="password"] {
-      width: 100%;
-      font-size: 1rem;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      font-family: 'Consolas', 'Monaco', monospace;
-    }
-    
-    input[type="password"]:focus {
-      outline: none;
-      border-color: #3498db;
-      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    #passwordInput {
+      height: 80px;
     }
     
     .email-list {
@@ -284,8 +270,8 @@
     
     <textarea id="emailInput" placeholder="请在此输入邮箱，每行一个，例如：&#10;example1@gmail.com&#10;example2@outlook.com"></textarea>
     
-    <h2 class="section-title" style="margin-top: 15px;">密码（可选）</h2>
-    <input type="password" id="passwordInput" placeholder="输入密码（可选，会同步到所有设备）" />
+    <h2 class="section-title" style="margin-top: 15px;">密码（可选，每行一个对应上方邮箱）</h2>
+    <textarea id="passwordInput" placeholder="输入密码，每行一个，例如：&#10;password123&#10;mypass456" style="-webkit-text-security: disc; text-security: disc;"></textarea>
   </main>
 
   <div class="card">
@@ -332,7 +318,7 @@
       
       let isUpdatingEmail = false;
       let isUpdatingPassword = false;
-      let currentPassword = '';
+      let passwordList = [];
 
       function showToast(message) {
         toast.textContent = message;
@@ -372,17 +358,20 @@
           return;
         }
 
-        const html = emails.map((email, index) => `
-          <div class="email-item" onclick="copyEmail('${email.trim().replace(/'/g, "\\'")}')">
-            <span class="email-number">${index + 1}.</span>
-            <span class="email-text">${email.trim()}</span>
-            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            ${currentPassword ? '<button class="password-btn" onclick="event.stopPropagation(); copyPassword();">复制密码</button>' : ''}
-          </div>
-        `).join('');
+        const html = emails.map((email, index) => {
+          const password = passwordList[index] || '';
+          return `
+            <div class="email-item" onclick="copyEmail('${email.trim().replace(/'/g, "\\'")}')">
+              <span class="email-number">${index + 1}.</span>
+              <span class="email-text">${email.trim()}</span>
+              <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              ${password ? `<button class="password-btn" onclick="event.stopPropagation(); copyPassword('${password.replace(/'/g, "\\'")}');">复制密码</button>` : ''}
+            </div>
+          `;
+        }).join('');
 
         emailList.innerHTML = html;
       }
@@ -391,9 +380,9 @@
         copyToClipboard(email);
       };
 
-      window.copyPassword = function() {
-        if (currentPassword) {
-          copyToClipboard(currentPassword);
+      window.copyPassword = function(password) {
+        if (password) {
+          copyToClipboard(password);
         } else {
           showToast('⚠️ 未设置密码');
         }
@@ -414,9 +403,10 @@
       passwordInput.addEventListener('input', () => {
         if (isUpdatingPassword) return;
         
-        const password = passwordInput.value;
-        currentPassword = password;
-        passwordRef.set(password).catch(error => {
+        const passwordText = passwordInput.value;
+        passwordList = passwordText.split('\n').map(p => p.trim());
+        
+        passwordRef.set(passwordText).catch(error => {
           console.error('保存密码失败:', error);
           showToast('❌ 保存密码失败');
         });
@@ -444,12 +434,12 @@
 
       // 监听Firebase密码数据变化
       passwordRef.on('value', snapshot => {
-        const password = snapshot.val() || '';
-        currentPassword = password;
+        const passwordText = snapshot.val() || '';
+        passwordList = passwordText.split('\n').map(p => p.trim());
         
-        if (passwordInput.value !== password) {
+        if (passwordInput.value !== passwordText) {
           isUpdatingPassword = true;
-          passwordInput.value = password;
+          passwordInput.value = passwordText;
           setTimeout(() => { isUpdatingPassword = false; }, 100);
         }
         
