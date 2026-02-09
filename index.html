@@ -85,6 +85,20 @@
       height: 80px;
     }
     
+    .input-row {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    
+    .input-col {
+      flex: 1;
+    }
+    
+    .input-col textarea {
+      margin: 0;
+    }
+    
     .email-list {
       margin-top: 15px;
     }
@@ -248,6 +262,10 @@
         right: 10px;
         left: 10px;
       }
+      
+      .input-row {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -268,10 +286,17 @@
       <h3>💡 在下方输入框粘贴邮箱（每行一个）和密码，点击邮箱或密码按钮即可复制，多设备自动同步</h3>
     </div>
     
-    <textarea id="emailInput" placeholder="请在此输入邮箱，每行一个，例如：&#10;example1@gmail.com&#10;example2@outlook.com"></textarea>
-    
-    <h2 class="section-title" style="margin-top: 15px;">密码（可选，每行一个对应上方邮箱）</h2>
-    <textarea id="passwordInput" placeholder="输入密码，每行一个，例如：&#10;password123&#10;mypass456" style="-webkit-text-security: disc; text-security: disc;"></textarea>
+    <div class="input-row">
+      <div class="input-col">
+        <h2 class="section-title">邮箱列表</h2>
+        <textarea id="emailInput" placeholder="请在此输入邮箱，每行一个，例如：&#10;example1@gmail.com&#10;example2@outlook.com"></textarea>
+      </div>
+      
+      <div class="input-col">
+        <h2 class="section-title">密码（可选）</h2>
+        <textarea id="passwordInput" placeholder="输入密码，每行一个，例如：&#10;password123&#10;mypass456" style="-webkit-text-security: disc; text-security: disc;"></textarea>
+      </div>
+    </div>
   </main>
 
   <div class="card">
