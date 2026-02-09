@@ -18,19 +18,19 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding: 15px;
+      padding: 20px;
       color: #333;
     }
     
     header {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       width: 100%;
       max-width: 800px;
     }
     
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #2c3e50;
       margin-bottom: 8px;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
@@ -38,14 +38,14 @@
     
     .subtitle {
       color: #7f8c8d;
-      font-size: 0.9rem;
-      margin-bottom: 5px;
+      font-size: 1rem;
+      margin-bottom: 10px;
     }
     
     .card {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       padding: 20px;
       width: 90vw;
       max-width: 800px;
@@ -57,45 +57,50 @@
       color: #3498db;
       margin-bottom: 10px;
       padding-bottom: 8px;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 2px solid #eaeaea;
     }
     
     textarea {
       width: 100%;
-      font-size: 0.95rem;
-      padding: 10px;
+      font-size: 1rem;
+      padding: 12px;
       margin: 8px 0;
-      border-radius: 6px;
+      border-radius: 8px;
       border: 1px solid #ddd;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
-      height: 120px;
+      height: 100px;
       resize: vertical;
       font-family: 'Consolas', 'Monaco', monospace;
-      line-height: 1.4;
+      line-height: 1.5;
     }
     
     textarea:focus {
       outline: none;
       border-color: #3498db;
-      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     }
     
-    .instructions {
-      background: #e8f4fd;
-      border-left: 3px solid #3498db;
-      padding: 10px 12px;
-      border-radius: 0 6px 6px 0;
-      margin: 10px 0;
-      font-size: 0.85rem;
-      line-height: 1.4;
+    input[type="password"] {
+      width: 100%;
+      font-size: 1rem;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      font-family: 'Consolas', 'Monaco', monospace;
+    }
+    
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     }
     
     .email-list {
       margin-top: 15px;
-      max-height: 400px;
-      overflow-y: auto;
-      padding-right: 5px;
     }
     
     .email-item {
@@ -105,16 +110,16 @@
       margin: 6px 0;
       background: #f8f9fa;
       border: 1px solid #e0e0e0;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       position: relative;
     }
     
     .email-item:hover {
       background: #e8f4fd;
       border-color: #3498db;
-      transform: translateX(3px);
+      transform: translateX(5px);
     }
     
     .email-item:active {
@@ -125,13 +130,13 @@
       font-weight: bold;
       color: #3498db;
       min-width: 30px;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
     
     .email-text {
       flex: 1;
       font-family: 'Consolas', 'Monaco', monospace;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #2c3e50;
       word-break: break-all;
     }
@@ -141,30 +146,45 @@
       height: 20px;
       margin-left: 8px;
       opacity: 0.6;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.3s ease;
     }
     
     .email-item:hover .copy-icon {
       opacity: 1;
     }
     
+    .password-btn {
+      margin-left: 8px;
+      padding: 5px 10px;
+      background: #9b59b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    
+    .password-btn:hover {
+      background: #8e44ad;
+      transform: scale(1.05);
+    }
+    
     .toast {
       position: fixed;
-      top: 15px;
-      right: 15px;
+      top: 20px;
+      right: 20px;
       background: #2ecc71;
       color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       font-weight: 500;
-      font-size: 0.9rem;
       opacity: 0;
-      transform: translateY(-15px);
-      transition: all 0.2s ease;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
       z-index: 1000;
-      max-width: 300px;
-      word-break: break-all;
     }
     
     .toast.show {
@@ -175,9 +195,9 @@
     .status-indicator {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 5px;
-      font-size: 0.8rem;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 0.85rem;
       color: #7f8c8d;
     }
     
@@ -198,37 +218,49 @@
       50% { opacity: 0.5; }
     }
     
+    .instructions {
+      background: #e8f4fd;
+      border-left: 4px solid #3498db;
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+      margin: 15px 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    .instructions h3 {
+      color: #2c3e50;
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    
     .empty-state {
       text-align: center;
-      padding: 30px 15px;
+      padding: 30px 20px;
       color: #7f8c8d;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     
     footer {
       margin-top: 20px;
       text-align: center;
       color: #7f8c8d;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
     
     @media (max-width: 600px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
       
       .card {
-        padding: 15px 12px;
+        padding: 15px;
       }
       
       .toast {
         right: 10px;
         left: 10px;
-        max-width: calc(100% - 20px);
-      }
-      
-      .email-list {
-        max-height: 300px;
       }
     }
   </style>
@@ -236,7 +268,7 @@
 <body>
   <header>
     <h1>📧 邮箱列表同步工具</h1>
-    <p class="subtitle">点击邮箱即可复制 · 多设备实时同步</p>
+    <p class="subtitle">多设备实时同步 · 一键复制</p>
     <div class="status-indicator">
       <div class="status-dot" id="statusDot"></div>
       <span id="statusText">正在连接...</span>
@@ -247,17 +279,20 @@
     <h2 class="section-title">输入邮箱列表</h2>
     
     <div class="instructions">
-      在下方输入邮箱（每行一个），所有打开此页面的设备都会实时同步。点击任意邮箱即可复制。
+      <h3>💡 在下方输入框粘贴邮箱（每行一个）和密码，点击邮箱或密码按钮即可复制，多设备自动同步</h3>
     </div>
     
-    <textarea id="emailInput" placeholder="每行一个邮箱，例如：&#10;example1@gmail.com&#10;example2@outlook.com&#10;example3@yahoo.com"></textarea>
+    <textarea id="emailInput" placeholder="请在此输入邮箱，每行一个，例如：&#10;example1@gmail.com&#10;example2@outlook.com"></textarea>
+    
+    <h2 class="section-title" style="margin-top: 15px;">密码（可选）</h2>
+    <input type="password" id="passwordInput" placeholder="输入密码（可选，会同步到所有设备）" />
   </main>
 
   <div class="card">
-    <h2 class="section-title">邮箱列表 <span style="color: #7f8c8d; font-size: 0.8rem; font-weight: normal;">(点击复制)</span></h2>
+    <h2 class="section-title">邮箱列表 <span style="color: #7f8c8d; font-size: 0.85rem; font-weight: normal;">(点击复制)</span></h2>
     <div id="emailList" class="email-list">
       <div class="empty-state">
-        输入邮箱后，这里会显示可点击复制的列表
+        📝 在上方输入框粘贴邮箱后，这里会显示可点击复制的列表
       </div>
     </div>
   </div>
@@ -276,6 +311,7 @@
       const firebaseConfig = {
         apiKey: "AIzaSyAZ5UMghnT33UrBcPWWQQ8thmx9Dhripl0",
         authDomain: "mail-split-23793.firebaseapp.com",
+        databaseURL: "https://mail-split-23793-default-rtdb.firebaseio.com",
         projectId: "mail-split-23793",
         storageBucket: "mail-split-23793.firebasestorage.app",
         messagingSenderId: "797915080111",
@@ -285,27 +321,31 @@
       firebase.initializeApp(firebaseConfig);
       const database = firebase.database();
       const emailRef = database.ref('email_list/default');
+      const passwordRef = database.ref('password/default');
       
       const emailInput = document.getElementById('emailInput');
+      const passwordInput = document.getElementById('passwordInput');
       const emailList = document.getElementById('emailList');
       const statusDot = document.getElementById('statusDot');
       const statusText = document.getElementById('statusText');
       const toast = document.getElementById('toast');
       
-      let isUpdating = false;
+      let isUpdatingEmail = false;
+      let isUpdatingPassword = false;
+      let currentPassword = '';
 
       function showToast(message) {
         toast.textContent = message;
         toast.classList.add('show');
         setTimeout(() => {
           toast.classList.remove('show');
-        }, 1500);
+        }, 2000);
       }
 
       async function copyToClipboard(text) {
         try {
           await navigator.clipboard.writeText(text);
-          showToast('已复制: ' + text);
+          showToast('✓ 已复制: ' + text);
         } catch (err) {
           const textarea = document.createElement('textarea');
           textarea.value = text;
@@ -315,20 +355,20 @@
           textarea.select();
           document.execCommand('copy');
           document.body.removeChild(textarea);
-          showToast('已复制: ' + text);
+          showToast('✓ 已复制: ' + text);
         }
       }
 
       function renderEmailList(text) {
         if (!text || !text.trim()) {
-          emailList.innerHTML = '<div class="empty-state">输入邮箱后，这里会显示可点击复制的列表</div>';
+          emailList.innerHTML = '<div class="empty-state">📝 在上方输入框粘贴邮箱后，这里会显示可点击复制的列表</div>';
           return;
         }
 
         const emails = text.split('\n').filter(line => line.trim());
         
         if (emails.length === 0) {
-          emailList.innerHTML = '<div class="empty-state">输入邮箱后，这里会显示可点击复制的列表</div>';
+          emailList.innerHTML = '<div class="empty-state">📝 在上方输入框粘贴邮箱后，这里会显示可点击复制的列表</div>';
           return;
         }
 
@@ -340,53 +380,93 @@
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
+            ${currentPassword ? '<button class="password-btn" onclick="event.stopPropagation(); copyPassword();">复制密码</button>' : ''}
           </div>
         `).join('');
 
         emailList.innerHTML = html;
-        
-        if (emails.length > 10) {
-          emailList.style.maxHeight = '350px';
-        }
       }
 
       window.copyEmail = function(email) {
         copyToClipboard(email);
       };
 
+      window.copyPassword = function() {
+        if (currentPassword) {
+          copyToClipboard(currentPassword);
+        } else {
+          showToast('⚠️ 未设置密码');
+        }
+      };
+
+      // 监听邮箱输入
       emailInput.addEventListener('input', () => {
-        if (isUpdating) return;
+        if (isUpdatingEmail) return;
         
         const text = emailInput.value;
         emailRef.set(text).catch(error => {
-          console.error('保存失败:', error);
-          showToast('保存失败');
+          console.error('保存邮箱失败:', error);
+          showToast('❌ 保存邮箱失败');
         });
       });
 
+      // 监听密码输入
+      passwordInput.addEventListener('input', () => {
+        if (isUpdatingPassword) return;
+        
+        const password = passwordInput.value;
+        currentPassword = password;
+        passwordRef.set(password).catch(error => {
+          console.error('保存密码失败:', error);
+          showToast('❌ 保存密码失败');
+        });
+        
+        // 重新渲染列表以显示/隐藏密码按钮
+        renderEmailList(emailInput.value);
+      });
+
+      // 监听Firebase邮箱数据变化
       emailRef.on('value', snapshot => {
         const text = snapshot.val() || '';
         
         if (emailInput.value !== text) {
-          isUpdating = true;
+          isUpdatingEmail = true;
           emailInput.value = text;
-          setTimeout(() => { isUpdating = false; }, 100);
+          setTimeout(() => { isUpdatingEmail = false; }, 100);
         }
         
         renderEmailList(text);
       }, error => {
-        console.error('同步失败:', error);
+        console.error('同步邮箱失败:', error);
         statusText.textContent = '同步失败';
         statusDot.classList.remove('connected');
       });
 
+      // 监听Firebase密码数据变化
+      passwordRef.on('value', snapshot => {
+        const password = snapshot.val() || '';
+        currentPassword = password;
+        
+        if (passwordInput.value !== password) {
+          isUpdatingPassword = true;
+          passwordInput.value = password;
+          setTimeout(() => { isUpdatingPassword = false; }, 100);
+        }
+        
+        // 重新渲染列表以显示/隐藏密码按钮
+        renderEmailList(emailInput.value);
+      }, error => {
+        console.error('同步密码失败:', error);
+      });
+
+      // 监听连接状态
       database.ref('.info/connected').on('value', snapshot => {
         if (snapshot.val() === true) {
           statusDot.classList.add('connected');
-          statusText.textContent = '已连接';
+          statusText.textContent = '✓ 已连接同步';
         } else {
           statusDot.classList.remove('connected');
-          statusText.textContent = '断开连接';
+          statusText.textContent = '✗ 连接断开';
         }
       });
     });
